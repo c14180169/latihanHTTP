@@ -1,20 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-card *ngFor="let dPOST of dataPOST">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{dPOST.avatar}}">
+        </ion-avatar>
+        {{dPOST.first_name}} {{dPOST.last_name}}
+      </ion-item>
+      <ion-item>First name : {{dPOST.first_name}} </ion-item>
+      <ion-item>Last Name : {{dPOST.last_name}} </ion-item>
+      <ion-item>E-mail : {{dPOST.email}} </ion-item>
+    </ion-card>
+  </ion-list>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" (click)="toHalDua()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

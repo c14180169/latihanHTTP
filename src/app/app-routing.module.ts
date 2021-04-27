@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'hal-dua',
+    loadChildren: () => import('./hal-dua/hal-dua.module').then( m => m.HalDuaPageModule)
+  },
 ];
 
 @NgModule({

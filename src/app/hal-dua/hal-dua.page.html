@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add,Edit, & Delete</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>ADD DATA</ion-card-title>
+    </ion-card-header>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="post.email" placeholder="E-mail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="post.first" placeholder="First name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="post.last" placeholder="Last name"></ion-input>
+    </ion-item>
+    <ion-button (click)="addData()">ADD DATA</ion-button>
+  </ion-card>
+  
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>EDIT DATA</ion-card-title>
+    </ion-card-header>
+    <ion-select placeholder="Pilih ID" [(ngModel)]="id_select_edit">
+      <ion-select-option *ngFor="let data of dataPOST" value="{{data.id}}">{{data.id}}</ion-select-option>
+    </ion-select>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="post_edit.email" placeholder="E-mail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="post_edit.first" placeholder="First name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="post_edit.last" placeholder="Last name"></ion-input>
+    </ion-item>
+    <ion-button (click)="editData()">EDIT DATA</ion-button>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>DELETE DATA</ion-card-title>
+    </ion-card-header>
+    <ion-select placeholder="Pilih ID" [(ngModel)]="id_select_del">
+      <ion-select-option *ngFor="let data of dataPOST" value="{{data.id}}">{{data.id}}</ion-select-option>
+    </ion-select>
+  
+    <ion-button (click)="deleteBtn()" color="danger">DELETE DATA</ion-button>
+  </ion-card>
+</ion-content>
